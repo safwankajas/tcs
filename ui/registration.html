@@ -1,0 +1,162 @@
+US_UI_001
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Grocery Registration</title>
+  <style>
+    /* CSS styles go here */
+      body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    } 
+
+      .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-top: 30px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    } 
+	
+      button[type="submit"] {
+      display: block;
+      width: 50%;
+      padding: 10px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    input,textarea
+    {
+      width: 80%;
+      /* height: 35px; */
+    }
+    input{
+      height: 35px;
+    }
+
+  </style>
+  <script>
+    function handleRegistration(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var customerName = document.getElementById("customerName").value;
+      var email = document.getElementById("email").value;
+      var password = document.getElementById("password").value;
+      var address = document.getElementById("address").value;
+      var contactNumber = document.getElementById("contactNumber").value;
+
+      // Validation
+      var valid = true;
+      var errorMessage = "";
+
+      if (!/^[A-Za-z]+$/.test(customerName)) {
+        errorMessage += "Customer Name must have alphabets only.\n";
+        valid = false;
+      }
+
+      if (customerName.trim() === "") {
+        errorMessage += "Customer Name cannot be blank.\n";
+        valid = false;
+      }
+
+      if (!email.includes("@")) {
+        errorMessage += "Email id not valid.\n";
+        valid = false;
+      }
+
+      if (password.length < 5 || !/[A-Z]/.test(password) || !/\d/.test(password) || !/[^A-Za-z0-9]/.test(password)) {
+        errorMessage += "Password is not matching the criteria.\n";
+        valid = false;
+      }
+
+      if (password.trim() === "") {
+        errorMessage += "Password cannot be blank.\n";
+        valid = false;
+      }
+
+      if (address.trim() === "") {
+        errorMessage += "Address field cannot be blank.\n";
+        valid = false;
+      }
+
+      if (contactNumber.trim() === "" || /\D/.test(contactNumber)) {
+        errorMessage += "Contact number must not have any alphabets.\n";
+        valid = false;
+      }
+
+      if (valid) {
+        // Registration successful
+        var customerId = generateCustomerId();
+        var successMessage = document.getElementById("successMessage");
+        successMessage.innerHTML = "Customer Registration successful.<br><br>" +
+          "Customer ID: " + customerId + "<br>" +
+          "Customer Name: " + customerName + "<br>" +
+          "Email: " + email;
+        successMessage.style.display = "block";
+        event.target.reset();
+      } else {
+        // Display error message
+        alert(errorMessage);
+      }
+    }
+
+    function generateCustomerId() {
+      // Generate a random customer ID or use any other logic to generate a unique ID
+      var customerId = Math.floor(Math.random() * 1000000) + 1;
+      return customerId;
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <center>
+    <h1>Register for Online Grocery</h1>
+    <form id="registration-form" onsubmit="handleRegistration(event)"><br>
+      <label for="customerName">Customer Name:</label>
+      <input type="text" id="customerName" name="customerName" maxlength="50" required><br><br>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" maxlength="30" required><br><br>
+
+      <label for="address">Address:</label>
+      <textarea id="address" name="address" maxlength="100" required></textarea><br><br>
+
+      <label for="contactNumber">Contact Number:</label>
+      <input type="text" id="contactNumber" name="contactNumber" maxlength="10" required><br><br>
+
+      <button type="submit">Register</button><br><br>
+    </form>
+    <div id="successMessage" style="display: none;  color: green;"></div>
+  </center>
+  </div>
+</body>
+</html>

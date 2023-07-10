@@ -1,0 +1,9 @@
+CREATE TABLE Login (  CustomerID INT NOT NULL, 
+LastLogin DATETIME NOT NULL,  
+LastLogout DATETIME NOT NULL,  
+UpdatedPassword VARCHAR(255) NOT NULL,  
+OldPassword VARCHAR(255) NOT NULL,  
+IsNowLoggedIn VARCHAR(1) NOT NULL,  
+PRIMARY KEY (CustomerID));
+
+SELECT TOP 50 PERCENT CustomerIDFROM LoginWHERE IsNowLoggedIn = 'Y'ORDER BY CustomerID ASC;

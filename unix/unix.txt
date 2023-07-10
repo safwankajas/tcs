@@ -1,0 +1,21 @@
+US_UI_001
+sort -k1,1 products.txt
+
+
+
+
+
+US_UI_002
+sed -i 's/^<search_pattern>/<replace_pattern>/' products.txt
+
+
+US_UI_003
+grep "^<product_name>" products.txt
+
+
+
+
+
+
+
+

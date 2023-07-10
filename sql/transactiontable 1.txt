@@ -1,0 +1,21 @@
+CREATE TABLE Transaction (
+  TransactionID INT PRIMARY KEY NOT NULL,
+  CustomerID INT NOT NULL,
+  ProductID INT NOT NULL,
+  TotalAmount INT NOT NULL,
+  NoOfItems INT NOT NULL,
+  FOREIGN KEY (CustomerID) REFERENCES Registration(CustomerID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID)
+);
+
+
+INSERT INTO Transaction (TransactionID, CustomerID, ProductID, TotalAmount, NoOfItems)
+VALUES (1, 1, 1, 10.99, 3);
+-- Add more transaction records as needed
+
+
+SELECT *
+FROM Transaction
+ORDER BY TotalAmount DESC
+OFFSET 1 ROW FETCH NEXT 1 ROW ONLY;
+

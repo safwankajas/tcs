@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "grocery_tcs",
+            "username": "grocery_tcs",
+            "group": "tcs",
+            "password": "Kajas@973",
+            "database": "Grocery"
+        }
+    ]
+}

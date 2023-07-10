@@ -1,0 +1,22 @@
+CREATE TABLE Registration (
+  CustomerID INT PRIMARY KEY NOT NULL,
+  CustomerName VARCHAR(255) NOT NULL,
+  Email VARCHAR(255) NOT NULL,
+  Password VARCHAR(255) NOT NULL,
+  Address VARCHAR(255) NOT NULL,
+  ContactNumber INT NOT NULL
+);
+
+
+
+UPDATE Registration
+SET CustomerName = CONCAT(
+    CASE
+        WHEN Address LIKE '%US%' THEN 'US_'
+        WHEN Address LIKE '%India%' THEN 'IN_'
+        ELSE ''
+    END,
+    CustomerName
+)
+WHERE CustomerID = <customer_id>;
+

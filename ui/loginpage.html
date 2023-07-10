@@ -1,0 +1,117 @@
+US_UI_002
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Grocery Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 400px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input{
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+      font-size: 14px;
+      color: #333;
+    }
+
+    button[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      border: none;
+      border-radius: 4px;
+      background-color: #4CAF50;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #45a049;
+    }
+
+    .error-message {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 4px;
+      background-color: #f2dede;
+      color: #a94442;
+    }
+  </style>
+  <script>
+    // JavaScript code goes here
+    function handleLogin(event) {
+      event.preventDefault(); // Prevent form submission
+
+      var customerId = document.getElementById("customerId").value;
+      var password = document.getElementById("password").value;
+
+      // Check login credentials
+      if (customerId === "") {
+        displayErrorMessage("ID not valid");
+      } else if (password === "") {
+        displayErrorMessage("Password not valid");
+      } else {
+        // Redirect to home page
+        window.location.href = "home.html";
+      }
+    }
+
+    function displayErrorMessage(message) {
+      var errorMessage = document.getElementById("errorMessage");
+      errorMessage.innerHTML = message;
+      errorMessage.style.display = "block";
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Online Grocery Login</h1>
+    <form id="login-form" onsubmit="handleLogin(event)">
+      <label for="customerId">Customer ID:</label>
+      <input type="text" id="customerId" name="customerId" required>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" maxlength="30" required>
+
+      <button type="submit">Login</button>
+    </form>
+    <div id="errorMessage" class="error-message" style="display: none;"></div>
+    <p>New User? <a href="./registration.html">Register Yourself</a></p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+CREATE TABLE Admin (
+  AdminID INT PRIMARY KEY NOT NULL,
+  AdminPassword VARCHAR(255) NOT NULL,
+  CustomerID INT NOT NULL,
+  ProductID INT NOT NULL,
+  TransactionID INT NOT NULL,
+  FOREIGN KEY (CustomerID) REFERENCES Registration(CustomerID),
+  FOREIGN KEY (ProductID) REFERENCES Product(ProductID),
+  FOREIGN KEY (TransactionID) REFERENCES Transaction(TransactionID)
+);
+
+
+SELECT r.CustomerID, r.CustomerName, r.Email, t.TransactionID, p.ProductName
+FROM Registration r
+JOIN Transaction t ON r.CustomerID = t.CustomerID
+JOIN Product p ON t.ProductID = p.ProductID;

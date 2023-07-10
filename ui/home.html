@@ -1,0 +1,120 @@
+US_UI_003
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Grocery Store</title>
+  <style>
+    /* CSS styles for the navigation bar */
+    .navbar {
+      background-color: #333;
+      color: #fff;
+      padding: 10px;
+    }
+    .navbar ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    .navbar li {
+      display: inline;
+      margin-right: 10px;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+    }
+  
+    /* CSS styles for the header */
+    .header {
+      text-align: center;
+      margin-top: 20px;
+    }
+  
+    /* CSS styles for the product listings */
+    .product {
+      margin-bottom: 20px;
+    }
+  
+    /* CSS styles for the cart */
+    .cart {
+      display: flex;
+    }
+    .cart-left {
+      flex: 1;
+    }
+    .cart-right {
+      flex: 1;
+    }
+    .cart-summary {
+      text-align: right;
+    }
+    .cart-total {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <div class="navbar">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="profile.html">My Profile</a></li>
+      <li><a href="cart.html">Cart</a></li>
+      <li><a href="loginpage.html">Logout</a></li>
+    </ul>
+  </div>
+
+  <!-- Header -->
+  <div class="header">
+    <h1>Hello <span id="customerName"></span> to Online Grocery Store</h1>
+  </div>
+
+  <!-- Product listings -->
+  <div id="productList">
+    <!-- Product 1 -->
+    <div class="product">
+      <h3>Product 1</h3>
+      <p>Price: $10</p>
+      <button class="addToCart">Add to Cart</button>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="product">
+      <h3>Product 2</h3>
+      <p>Price: $15</p>
+      <button class="addToCart">Add to Cart</button>
+    </div>
+
+    <!-- Add more products here -->
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    // Get customer name from the server-side or local storage
+    var customerName;
+    document.getElementById("customerName").innerText = customerName;
+  
+    // Add event listeners to the "Add to Cart" buttons
+    var addToCartButtons = document.getElementsByClassName("addToCart");
+    for (var i = 0; i < addToCartButtons.length; i++) {
+      addToCartButtons[i].addEventListener("click", addToCart);
+    }
+  
+    // Function to handle adding a product to the cart
+    function addToCart(event) {
+      var product = event.target.parentElement;
+  
+      // Retrieve the product details
+      var productName = product.querySelector("h3").innerText;
+      var price = product.querySelector("p").innerText;
+  
+      // Perform necessary actions (e.g., update cart in local storage)
+      // ...
+  
+      // Provide feedback to the user (e.g., display a success message)
+      alert(productName + " added to cart successfully!");
+    }
+  </script>
+</body>
+</html>
