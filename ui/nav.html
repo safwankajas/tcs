@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0px;
+            padding: 0;
+        }
+
+        nav {
+            background-color: #e6e1e1;
+            overflow: hidden;
+            top: 0;
+            position: sticky;
+            width: 100%;
+            margin-bottom: 5px;
+            height: 150px;
+            /* background: red; */
+        }
+
+        nav h1 {
+            color: rgb(194, 12, 12);
+            font-weight: 700;
+            padding-left: 30px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        .nav_ {
+
+            width: 100%;
+            height: 30px;
+            background-color: #919191;
+        }
+
+        .nav_item {
+            padding-top: 5px;
+            display: flex;
+            margin-left: 40px;
+            list-style: none;
+            font-weight: 500;
+
+        }
+
+        .nav_item li {
+            margin-left: 25px;
+            cursor: pointer;
+        }
+
+        .nav_item li:hover {
+            color: rgb(194, 12, 12);
+        }
+
+        .nav_log {
+            position: absolute;
+            display: flex;
+            right: 10px;
+            height: 50px;
+
+        }
+
+        .nav_log button {
+            width: 120px;
+            margin-left: 10px;
+            margin-top: 10px;
+            height: 30px;
+            border: 0;
+            color: #fff;
+            font-weight: 500;
+            background: rgb(243, 129, 7);
+            border-radius: 25px;
+            cursor: pointer;
+        }
+
+        .nav_log button:hover {
+            color: rgb(243, 129, 7);
+            background-color: #fff;
+            border: solid 1px;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div>
+            <h1>QuickEBill</h1>
+        </div>
+        <div class="nav_">
+
+
+            <ul class="nav_item">
+                <li>HOME</li>
+                <li>PayBill</li>
+                <li>REGISTERCOMPLAINT</li>
+                <li>COMPLAINT STATUS</li>
+            </ul>
+
+        </div>
+        <div class="nav_log">
+            <p> WELCOME <span>CusName</span> </p>
+            <button>LOGOUT <img style="height: 15px;" src="./source/logout.svg" alt="symbol" srcset=""></button>
+        </div>
+    </nav>
+
+
+
+</body>
+
+</html>
